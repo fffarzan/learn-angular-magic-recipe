@@ -25,10 +25,14 @@ export class RecipeEditComponent implements OnInit {
         (params: Params) => {
           this.id = +params['id'];
           this.editMode = params['id'] != null;
-          
+
           this.initForm();
         }
       );
+  }
+
+  onSubmit() {
+    
   }
 
   private initForm() {
@@ -38,6 +42,7 @@ export class RecipeEditComponent implements OnInit {
 
     if (this.editMode) {
       const recipe = this.recipeService.getRecipe(this.id);
+
       recipeName = recipe.name;
       recipeImagePath = recipe.imagePath;
       recipeDescription = recipe.description; 
