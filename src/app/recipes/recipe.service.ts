@@ -32,6 +32,11 @@ export class RecipeService {
 
   constructor(private shoppingListService: ShoppingListService) {}
 
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
   getRecipes() {
     // Getting a copy of data with `slice()`. (Data should not be 
     // accessable from outside).
